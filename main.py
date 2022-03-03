@@ -1,4 +1,4 @@
-import re, os, asyncio, json, flask, random, string, keep_alive
+import re, os, asyncio, random, string, keep_alive
 from discord.ext import commands, tasks
 
 version = 'v2.7.2'
@@ -63,7 +63,6 @@ async def on_message(message):
                     await asyncio.sleep(1.5)
                     await channel.send('p!h')
                 elif "Congratulations" in embed_title:
-                    spam.cancel()
                     embed_content = message.embeds[0].description
                     if 'now level' in embed_content:
                         split = embed_content.split(' ')
@@ -75,9 +74,6 @@ async def on_message(message):
                                 data = fi.read().splitlines(True)
                             with open('data/level', 'w') as fo:
                                 fo.writelines(data[1:])
-                            spam.start()
-                        else:
-                            spam.start()
             else:
                 content = message.content
                 if 'The pokémon is ' in content:
