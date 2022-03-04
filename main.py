@@ -47,7 +47,6 @@ async def before_spam():
     await bot.wait_until_ready()
 
 spam.start()
-  
 @bot.event
 async def on_ready():
     print(f'Logged into account: {bot.user.name}')
