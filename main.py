@@ -83,6 +83,7 @@ async def on_message(message):
                         for i in solve(content):
                             await asyncio.sleep(1.5)
                             await channel.send(f'p!c {i}')
+                    await asyncio.sleep(1.5)
                     spam.start()
 
                 elif 'Congratulations' in content:
