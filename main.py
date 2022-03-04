@@ -1,10 +1,11 @@
 import re, os, asyncio, random, string, keep_alive
 from discord.ext import commands, tasks
 
-version = 'v2.7.3'
+version = 'v2.7.2'
 
 user_token = os.environ['user_token']
-channel_id = os.environ['channel_id']
+spam_id = os.environ['spam_id']
+catch_id = os.environ['catch_id']
 
 with open('data/pokemon','r', encoding='utf8') as file:
     pokemon_list = file.read()
@@ -38,7 +39,7 @@ def solve(message):
 
 @tasks.loop(seconds=random.choice(intervals))
 async def spam():
-    channel = bot.get_channel(int(channel_id))
+    channel = bot.get_channel(int(spam_id))
     await channel.send("".join(random.choices(string.ascii_uppercase + string.ascii_lowercase, k=random.randint(10, 16))))
 
 @spam.before_loop
@@ -46,15 +47,15 @@ async def before_spam():
     await bot.wait_until_ready()
 
 spam.start()
-
+  
 @bot.event
 async def on_ready():
     print(f'Logged into account: {bot.user.name}')
 
 @bot.event
 async def on_message(message):
-    channel = bot.get_channel(int(channel_id))
-    if message.channel.id == int(channel_id):
+    channel = bot.get_channel(int(catch_id))
+    if message.channel.id == int(catch_id):
         if message.author.id == poketwo:
             if message.embeds:
                 embed_title = message.embeds[0].title
