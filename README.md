@@ -21,7 +21,9 @@ The bot has the following features:
 ### Getting Started:
 To start up the bot on replit, go to the 'Secrets' tab on replit (the lock icon) and in the 'key' area, write `user_token`, and then type in your discord account token in the 'value' section. <br>
 
-Then, create another secret with `channel_id` in the 'key' section, and type in the channel id you want the bot to spam and catch in into the 'value' section. <br>
+Then, create another secret with `spam_id` in the 'key' section, and type in the channel id you want the bot to spam in into the 'value' section. <br>
+
+Then, create another secret with `catch_id` in the 'key' section, and type in the channel id you want the bot to catch in into the 'value' section. <br>
 
 After you've done that, please see the below section.
 
