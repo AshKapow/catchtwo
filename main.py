@@ -40,7 +40,7 @@ def solve(message):
 @tasks.loop(seconds=random.choice(intervals))
 async def spam():
     channel = bot.get_channel(int(spam_id))
-    await channel.send("".join(random.choices(string.ascii_uppercase + string.ascii_lowercase, k=random.randint(10, 16))))
+    await channel.send(' '.join(random.sample(string.ascii_letters+string.digits,50)*20))
 
 @spam.before_loop
 async def before_spam():
@@ -60,7 +60,7 @@ async def on_message(message):
                 embed_title = message.embeds[0].title
                 if 'wild pokémon has appeared!' in embed_title:
                     spam.cancel()
-                    await asyncio.sleep(1.5)
+                    await asyncio.sleep(1)
                     await channel.send('p!h')
                 elif "Congratulations" in embed_title:
                     embed_content = message.embeds[0].description
@@ -81,14 +81,14 @@ async def on_message(message):
                         print('Pokemon not found.')
                     else:
                         for i in solve(content):
-                            await asyncio.sleep(1.5)
+                            await asyncio.sleep(1)
                             await channel.send(f'p!c {i}')
-                    check = random.randint(1, 60)
+                    check = random.randint(1, 240)
                     if check == 1:
                       await asyncio.sleep(900)
                       spam.start()
                     else:
-                      await asyncio.sleep(1.5)
+                      await asyncio.sleep(1)
                       spam.start()
 
                 elif 'Congratulations' in content:
