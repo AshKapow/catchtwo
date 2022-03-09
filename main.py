@@ -83,7 +83,7 @@ async def on_message(message):
                         for i in solve(content):
                             await asyncio.sleep(1)
                             await channel.send(f'p!c {i}')
-                    check = random.randint(1, 240)
+                    check = random.randint(1, 60)
                     if check == 1:
                       await asyncio.sleep(900)
                       spam.start()
