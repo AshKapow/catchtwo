@@ -1,13 +1,9 @@
-# This project is deprecated
-
-It is now prefered that you use the `poketwo` module in [persona](https://github.com/rodofdiscord/persona). 
-
 ## Catchtwo
 A second generation **free** and open-source Pokétwo autocatcher, created with the goal of preventing people from wasting their money.
 
----
+Forked from the [original repo](https://github.com/devraza/catchtwo) this just has my own adjustments and tweaks
 
-**For a version of this autocatcher that works easily with repl.it, please see the replit branch [here](https://github.com/devraza/catchtwo/tree/replit)**.
+---
 
 ### Features
 The bot has the following features:
@@ -43,8 +39,7 @@ To enable auto-levelling, just put in the ID's of the Pokémon you want to be le
 
 ---
 
-## **DISCLAIMER**
-
-Please note that self botting is against Discord's Terms of Service and being discovered using a self bot may result in your account being banned. To avoid this, keep knowledge of your self bot to a minimum and use a throwaway account. I am not responsible for any accounts lost due to the self bot. I also recommend checking the self bot channel's messages occasionally to see if Pokétwo has sent a captcha. **If it has, it would be a good idea to solve it.**
+### ⚠️DISCLAIMER⚠️ <hr />
+please note that self botting is not allowed by discord (https://support.discord.com/hc/en-us/articles/115002192352-Automated-user-accounts-self-bots-) and that this is just an experimental project for myself</br>
 
 ---
