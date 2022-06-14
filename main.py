@@ -27,6 +27,9 @@ num_pokemon = 0
 shiny = 0
 legendary = 0
 mythical = 0
+target_level = 0
+min_level_range = 40
+max_level_range = 60
 
 poketwo = 716390085896962058
 bot = commands.Bot(command_prefix="->", self_bot=True)
@@ -78,11 +81,29 @@ async def on_message(message):
                 elif "Congratulations" in embed_title:
                     embed_content = message.embeds[0].description
                     if 'now level' in embed_content:
+                        global target_level
+                        global min_level_range
+                        global max_level_range
                         split = embed_content.split(' ')
                         a = embed_content.count(' ')
                         level = int(split[a].replace('!', ''))
-                        if level == 100:
-                            await channel.send(f"p!s {to_level}")
+                        if target_level == 0:
+                            target_level = random.randint(
+                                min_level_range, max_level_range)
+                            print(f'Level {target_level} selected as target')
+                        print(
+                            f'Current level is {level}, target level is {target_level}')
+                        if level >= target_level:
+                            print(
+                                f'Selected pokemon has reached level {level} switching to next pokemon')
+                            with open('data/level', 'r') as file:
+                                to_level = file.readline()
+                            await channel.send(f'p!s {to_level}')
+                            print(f'Selecting pokemon {to_level}')
+                            target_level = random.randint(
+                                min_level_range, max_level_range)
+                            print(f'Level {target_level} selected as target')
+
                             with open('data/level', 'r') as fi:
                                 data = fi.read().splitlines(True)
                             with open('data/level', 'w') as fo:
