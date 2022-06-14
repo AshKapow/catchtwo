@@ -150,6 +150,7 @@ async def on_message(message):
                             f'Shiny: {shiny} | Legendary: {legendary} | Mythical: {mythical}')
                     else:
                         print(f'Total Pokémon Caught: {num_pokemon}')
+                        await channel.send(f'p!evolve l')
                 elif 'human' in content:
                     spam.cancel()
                     print(
