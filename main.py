@@ -20,8 +20,8 @@ with open('data/legendary', 'r') as file:
     legendary_list = file.read()
 with open('data/mythical', 'r') as file:
     mythical_list = file.read()
-with open('data/level', 'r') as file:
-    to_level = file.readline()
+with open('data/wanted', 'r') as file:
+    wanted_list = file.read()
 
 num_pokemon = 0
 shiny = 0
@@ -116,7 +116,12 @@ async def on_message(message):
                     else:
                         for i in solve(content):
                             await asyncio.sleep(1)
-                            await channel.send(f'p!c {i}')
+                            if re.findall('^'+i+'$', wanted_list, re.MULTILINE):
+                                print(f'{i} is in the wanted list - CAPTURING')
+                                await channel.send(f'p!c {i}')
+                            else:
+                                print(
+                                    f'{i} is not in the wanted list')
                     check = random.randint(1, 240)
                     if check == 1:
                         await asyncio.sleep(900)
